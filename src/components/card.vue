@@ -1,6 +1,8 @@
 <template>
   <div class="rows">
-    <form class="row g-3">
+   <slot>    </slot>
+
+    <div class="row g-3">
       <div class="col-auto">
         <label for="inputName" class="visually-hidden">Название</label>
         <input v-model="part.PName" type="text" class="form-control" id="inputName" placeholder="Название">
@@ -17,7 +19,7 @@
       <div class="col-auto">
         <button v-on:click="added"  class="btn btn-primary mb-3">Добавить</button>
       </div>
-    </form>
+    </div>
 
     <button v-on:click="show"  class="btn btn-primary mb-3">Посмотреть результат</button>
 
@@ -28,8 +30,6 @@
           
         </li>
       </ul>
-
-
     </div>
 
     <div v-if="check" class="row">
@@ -43,6 +43,13 @@
 
     </div>
 
+
+    <div class="alert alert-secondary" role="alert">
+                  У нас в корзине лежит : {{resultSumm}} товара 
+      </div>
+
+
+    <slot >   </slot>
   </div>
 </template>
 
@@ -57,23 +64,22 @@ export default {
   data(){
     return{
       products: [],
-
       part: Product,
       check: false,
-      test:[1,2,3,4]
     }
   },
   methods:{
     added(){
-      
-      this.products.push(this.part)
-      //alert(this.product[0].PName)
-      
+      this.products.push({...this.part});   
     },
     show(){
-      this.check = true
-      //alert(this.product[0].PName)
+      this.check = !this.check
      
+    }
+  },
+  computed : {
+    resultSumm(){
+      return this.products.length;
     }
   }
 }
