@@ -29,6 +29,17 @@
         <button v-on:click="show" class="btn btn-primary mb-3">Показать</button>
       </div>  
     </div>
+
+    <div class="rows">
+        {{showMessage}}
+    </div>
+
+    <div class="rows">
+      <TestEmmit v-on:pressDown="testEmmit" />
+    </div>
+    <div class="rows">
+      <TestInject/>
+    </div>
   </div>  
 </template>
 
@@ -36,9 +47,13 @@
 /* eslint-disable */
 import ShowCard from '@/components/ShowCard.vue'
 import Product from '@/lib/Product.js'
+import TestEmmit from '@/components/TestEmmit.vue'
+import TestInject from '@/components/TestInject.vue'
 export default {
   components: {
-    ShowCard
+    ShowCard,
+    TestEmmit,
+    TestInject
   },
   name: 'Calculus',
   props: {
@@ -52,7 +67,8 @@ export default {
       },
       partArr: [],
       check: false,
-      testp: ''
+      testp: '',
+      showMessage: ''
     }
   },
   methods: {
@@ -64,7 +80,13 @@ export default {
     },
     show(){
       this.check = !this.check
+    },
+    testEmmit(e){
+        this.showMessage = e;
     }
+  },
+  provide:{
+    fruct: 'orange'
   }
 }
 </script>

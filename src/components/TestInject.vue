@@ -1,0 +1,28 @@
+<template>
+  <div>
+    <div class="row">
+       TestInject show: {{fruct}}
+
+    </div>
+
+  </div>  
+</template>
+
+<script>
+/* eslint-disable */
+export default {
+  name: 'TestInject',
+  props: {
+    
+  },
+  inject:['fruct'],
+
+}
+</script>
+
+<!-- Add "scoped" attribute to limit CSS to this component only -->
+<style scoped>
+
+</style>
+
+

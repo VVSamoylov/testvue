@@ -3,6 +3,7 @@
     <div class="row">
         <div v-for="item in prods" :key=item class="alert alert-success" role="alert">Название: {{item.name}} <br/> Цена: {{item.price}} <br/> Количество: {{item.volume}}    </div>
     </div>
+
   </div>  
 </template>
 
