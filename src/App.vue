@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-  <h1> Учет корзины</h1>
+  <h1> Тест Emit и Provide</h1>
     <Card/>
   </div>
 </template>
